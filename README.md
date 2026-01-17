@@ -51,7 +51,7 @@ A virtual WiFi modem based on the ESP8266, designed to get your Commodore 64 (or
 
 ## Credits
 Strikelink modifications by C. Mack (2023).
-Optimizations and Fixes by Antigravity (2025).
+Optimizations and Fixes by Soopahfly (2026).
 
 Based on:
 - **WiFi SIXFOUR** by Paul Rickards (2016)
