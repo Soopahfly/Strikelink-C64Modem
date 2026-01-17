@@ -1,29 +1,26 @@
 /*
-   WiFi SIXFOUR - A virtual WiFi modem based on the ESP 8266 chipset
-   Copyright (C) 2016 Paul Rickards <rickards@gmail.com>
-   Added EEPROM read/write, status/help pages, busy answering of incoming calls
-   uses the readily available Sparkfun ESP8266 WiFi Shield which has 5v level
-   shifters and 3.3v voltage regulation present-- easily connect to a C64
-   https://www.sparkfun.com/products/13287
+   STRIKELINK WiFi Modem - A virtual WiFi modem for retro computers (C64, etc.)
+   Based on WiFi SIXFOUR by Paul Rickards & ESP8266 Modem by Jussi Salin.
+   Modified by Soopahfly - 2026
 
-   based on
-   ESP8266 based virtual modem
-   Copyright (C) 2016 Jussi Salin <salinjus@gmail.com>
+   MODIFICATIONS:
+   - 2023 C. Mack: "Strikelink" branding and hardware adaptations.
+   - 2026 Soopahfly:
+     * Security: Hardcoded credentials removed (configure via AT commands).
+     * Reliability: Flash wear reduction (WiFi.persistent disabled).
+     * Performance: String memory optimizations (F-macro).
+     * Safety: Code cleanup and memory leak fixes.
 
-   https://github.com/jsalin/esp8266_modem
+   SETUP:
+   1. Connect via Serial (Default: 300 baud).
+   2. Set WiFi:
+      AT$SSID=YourSSID
+      AT$PASS=YourPassword
+      AT&W (Save)
+      AT$SB=9600
+   3. Connect: ATC1
 
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-
-   You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
+   Original Licenses apply (GPL v3).
 */
 
 #include <EEPROM.h>
@@ -764,6 +761,7 @@ void welcome() {
   Serial.println();
   Serial.println(F("STRIKELINK! BUILT BY CMACK 2023"));
   Serial.println(F("BASED ON GITHUB.COM/JSALIN/ESP8266_MODEM"));
+  Serial.println(F("MODIFIED BY SOOPAHFLY - 2026 - KEEPING UP WITH COMMODORE!"));
   Serial.println(F("ENTER 'AT?' FOR HELP"));
 }
 
